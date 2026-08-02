@@ -12,7 +12,9 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import cors from "cors";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const __dirname = dirname(fileURLToPath(import.meta.url)); 
+//here import.meta.url gives current directory url but we dont want url we want path thats why we use fileURLToPath() 
+// and also we dont want file name we want directory name thats why dirname()
 
 const port = process.env.PORT || 8080;
 
