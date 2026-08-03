@@ -63,27 +63,6 @@ export const errorHandler = (err, req, res, next) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 
 This middleware is one of the most important pieces of an Express backend. It is responsible for **catching every error that happens anywhere in your application and converting it into a proper HTTP response.**
