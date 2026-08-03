@@ -1,6 +1,6 @@
 import { HttpStatus } from '../constants/httpStatus.js'
 
-class ApiResponse {
+export class ApiResponse {
     static ok (res, message, data = null) {
         return res.status(HttpStatus.OK).json({
             success: true,

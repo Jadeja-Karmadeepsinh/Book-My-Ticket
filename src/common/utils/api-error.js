@@ -1,6 +1,6 @@
 import { HttpStatus } from '../constants/httpStatus.js'
 
-class ApiError extends Error {
+export class ApiError extends Error {
     constructor (statusCode, message) {
         super(message); //because when extending another class, the parent must be initialized first.
         this.name = this.constructor.name; //so the error prints as ApiError instead of just Error.
