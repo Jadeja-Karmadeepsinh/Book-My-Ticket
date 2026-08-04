@@ -1,6 +1,7 @@
 import express, { urlencoded } from 'express';
 //here all the routes will come auth, movies, etc
 import listEndpoints from 'express-list-endpoints';
+import cookieParser from 'cookie-parser';
 
 const app = express();
 app.use(express.json());
@@ -14,6 +15,7 @@ app.use(urlencoded({ extended: true }));
 //     email: "abc@gmail.com",
 //     password: "123456"
 // }
+app.use(cookieParser());
 
 
 //here the routes will go 

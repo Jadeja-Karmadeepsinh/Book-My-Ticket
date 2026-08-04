@@ -4,16 +4,17 @@ import { verifyAccessToken } from "../utils/jwt.utils.js"
 
 export const requireAuth = (req, res, next) => {
     try {
-        const authHeader = req.headers.authorization;
+        // Read token from cookie instead of Authorization header
+        const token = req.cookies?.accessToken;
 
-        if(!authHeader?.startsWith("Bearer ")){
+        if(!token){
             throw ApiError.unauthorized("Authentication required");
         }
 
-        const token = authHeader.split(" ")[1];
-
+        // Verify JWT
         const decoded = verifyAccessToken(token);
 
+        // Check latest user from database
         const result = await pool.query(`SELECT id, name, email, role FROM users WHERE id = $1`, [decoded.id]);
 
         if(result.rowCount === 0){
