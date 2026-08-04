@@ -15,7 +15,7 @@ export const requireAuth = (req, res, next) => {
         const decoded = verifyAccessToken(token);
 
         // Check latest user from database
-        const result = await pool.query(`SELECT id, name, email, role FROM users WHERE id = $1`, [decoded.id]);
+        const result = await pool.query(`SELECT id, name, email FROM users WHERE id = $1`, [decoded.id]);
 
         if(result.rowCount === 0){
             throw ApiError.unauthorized("User not found");
